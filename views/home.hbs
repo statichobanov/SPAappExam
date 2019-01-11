@@ -1,0 +1,28 @@
+{{>header}}
+{{#if user}}
+<main id="site-content">
+    <section class="dashboard">
+        <h1>Dashboard</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#/pet/allPets">All</a></li>
+                <li><a href="#/pet/allCats">Cats</a></li>
+                <li><a href="#/pet/allDogs">Dogs</a></li>
+                <li><a href="#/pet/allParrots">Parrots</a></li>
+                <li><a href="#/pet/allReptiles">Reptiles</a></li>
+                <li><a href="#/pet/allOther">Other</a></li>
+            </ul>
+        </nav>
+    </section>
+    <ul class="other-pets-list">
+        {{#each pets}}
+        {{> listAll}}
+        {{/each}}
+    </ul>
+</main>
+{{else}}
+<section class="basic">
+    <h1> Welcome to pet my pet!</h1>
+</section>
+{{/if}}
+{{>footer}}

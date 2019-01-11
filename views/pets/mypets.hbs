@@ -1,0 +1,24 @@
+{{>header}}
+{{#each pets}}
+<section class="myPet">
+    <h3>Name: {{name}}</h3>
+    <p>Category: {{category}}</p>
+    <p class="img"><img src="{{imageURL}}"></p>
+    <p class="description">{{description}}</p>
+    <div class="pet-info">
+        
+        <form action="#/pet/edit" method="get">
+            <input type="hidden" name="editId" value="{{_id}}">
+            <input type="submit" value="Edit" class="button">
+        </form>
+
+        <form action="#/pet/delete" method="post">
+            <input type="hidden" name="deleteId" value="{{_id}}">
+            <input type="submit" value="Delete" class="button">
+        </form>
+
+        <i class="fas fa-heart"></i> <span>{{likes}}</span>
+    </div>
+</section>
+{{/each}}
+{{>footer}}

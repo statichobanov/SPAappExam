@@ -1,0 +1,36 @@
+<section class="otherPet">
+    <li class="otherPet">
+        <h3>Name: {{name}}</h3>
+        <p>Category: {{category}}</p>
+        <p class="img"><img src="{{imageURL}}"></p>
+        <p class="description">{{description}}</p>
+        <div class="pet-info">
+            {{#if isCreator}}
+            <form action="#/pet/edit" method="get">
+                <input type="hidden" name="editId" value="{{_id}}">
+                <input type="submit" value="Details" class="button">
+            </form>
+
+            <i class="fas fa-heart"></i> <span> {{likes}}</span>
+            {{else}}
+
+            <form action="#/pet/likes" method="post">
+                <input type="hidden" name="likeId" value="{{_id}}">
+                <input type="hidden" name="description" value="{{description}}">
+                <input type="hidden" name="name" value="{{name}}" />
+                <input type="hidden" name="imageURL" value="{{imageURL}}" />
+                <input type="hidden" name="likes" value="{{likes}}" />
+                <input type="hidden" name="category" value="{{category}}" />
+                <button type="submit" class="button"><i class="fas fa-heart"></i> Pet</button>
+            </form>
+
+            <form action="#/pet/details" method="get">
+                <input type="hidden" name="detailsId" value="{{_id}}">
+                <input type="submit" value="Details" class="button">
+            </form>
+
+            <i class="fas fa-heart"></i> <span> {{likes}}</span>
+            {{/if}}
+        </div>
+    </li>
+</section>
